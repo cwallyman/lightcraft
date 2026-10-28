@@ -9,7 +9,7 @@ use crate::LightcraftApp;
 use crate::icons::{Icon, paint};
 use crate::state::RightPanel;
 use crate::theme::Tokens;
-use crate::widgets::{divider, register, slider, text_button};
+use crate::widgets::{divider, register, section_header, slider, text_button};
 
 pub fn show(app: &mut LightcraftApp, ui: &mut egui::Ui) {
     let t = Tokens::get(ui.ctx());
@@ -347,7 +347,20 @@ fn crop(app: &mut LightcraftApp, ui: &mut egui::Ui, id: PhotoId) {
         }
     });
     divider(ui);
-    header(ui, "Geometry");
+    // folds and switches off like an Edit-panel section: chevron to fold, eye to turn Geometry off
+    let open = !app.ui.section_folded("geometry");
+    let (resp, toggled) = section_header(ui, "geometry", "Geometry", open, Some(d.section_enabled("geometry")));
+    if let Some(on) = toggled {
+        let _ = app.run("develop.sectionEnabled", json!({"section": "geometry", "enabled": on}));
+    } else if resp.clicked() {
+        app.ui.toggle_folded("geometry");
+    }
+    if open {
+        geometry(app, ui, &d);
+    }
+}
+
+fn geometry(app: &mut LightcraftApp, ui: &mut egui::Ui, d: &lightcraft_develop::DevelopSettings) {
     padded(ui, |ui| {
         ui.label(crate::i18n::tr("Upright"));
         {
@@ -404,7 +417,7 @@ fn crop(app: &mut LightcraftApp, ui: &mut egui::Ui, id: PhotoId) {
         }
     });
     for spec in lightcraft_develop::controls::in_section(lightcraft_develop::Section::Geometry).filter(|c| c.id != "crop.angle") {
-        let v = lightcraft_develop::controls::get(&d, spec.id).unwrap_or(spec.default);
+        let v = lightcraft_develop::controls::get(d, spec.id).unwrap_or(spec.default);
         let out = slider(ui, spec, v, true, None);
         super::edit::apply_slider_out(app, spec, out, |app, v| app.run("develop.set", json!({"control": spec.id, "value": v})));
     }
