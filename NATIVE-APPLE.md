@@ -1,16 +1,16 @@
-> **2026-10-21 branding update:** the active native project is now `NativeReference/iLightCraft.xcodeproj`, scheme `iLightCraft`. Source and test folders, executable, engine bridge and scripts use iLightCraft. The chronology below retains the original identifiers and test evidence; see `NativeReference/Docs/APP-STORE-READINESS.md` for current Release settings.
+> **2026-10-21 branding update:** the active native project is now `../../iLightCraftApp/iLightCraft.xcodeproj`, scheme `iLightCraft`. Source and test folders, executable, engine bridge and scripts use iLightCraft. The chronology below retains the original identifiers and test evidence; see `../../iLightCraftApp/Docs/APP-STORE-READINESS.md` for current Release settings.
 
 # Native Apple app direction
 
 Last updated: 2026-10-26
 
 The user selected Unveil as the foundation again, with iPad, Mac and iPhone apps.
-Active source is the separate Git checkout in `NativeReference/` (base `79be4e4`).
+Active source is the separate Git checkout in `../../iLightCraftApp/` (base `79be4e4`).
 The parent Rust checkout remains an upstream reference. At the user's request,
 `AppleWrapper/` and obsolete app/build copies were moved to Trash on 2026-10-26.
-NativeReference is the only active Apple app project. Device backups, originals,
+iLightCraftApp is the only active Apple app project. Device backups, originals,
 current source/build inputs and submitted release archives remain preserved.
-See [cleanup and recovery details](NativeReference/Docs/Verification/2026-10-26-project-cleanup.md).
+See [cleanup and recovery details](https://github.com/cwallyman/iLightCraft/blob/ipad-lightcraft/Docs/Verification/2026-10-26-project-cleanup.md).
 The historical local `plan/` files are absent from this checkout.
 
 ## Platform foundation
@@ -21,8 +21,8 @@ The historical local `plan/` files are absent from this checkout.
 | iPhone | Photo above a compact adjustment dock, 48-point histogram, top Edit/Done control | New layout visually checked in simulator; 13 editor tests passed; previous build installed, new signed update awaits device connectivity |
 | Mac | Mac Catalyst, arm64 engine slice, separate Mac sandbox/Photos entitlements | Build passed; launch requested; visual and workflow check pending because Mac locked, user elected to continue without it |
 
-`NativeReference/scripts/build-xcframework.sh` builds the three Rust engine slices.
-`NativeReference/scripts/build-apple-local.sh` accepts `simulator`, `ios` or `mac`.
+`../../iLightCraftApp/scripts/build-xcframework.sh` builds the three Rust engine slices.
+`../../iLightCraftApp/scripts/build-apple-local.sh` accepts `simulator`, `ios` or `mac`.
 It builds unsigned with a separate `com.cwallyman.UnveilNative` identity so this development
 app cannot replace `com.cwallyman.LightCraftWebPad` or the former iPad prototype.
 No App Store submission or automatic library migration occurred.
@@ -79,7 +79,7 @@ Verification for this update:
    and compact controls on a physical iPhone; verify the native Mac
    Files/Photos launch screen, resize, keyboard/mouse and editing on an unlocked Mac.
 2. Native export and crop are implemented and installed on iPhone. Finish the saved hands-on
-   import/edit/export/reopen checks; see `NativeReference/Docs/Verification/export-and-crop.md`.
+   import/edit/export/reopen checks; see `../../iLightCraftApp/Docs/Verification/export-and-crop.md`.
 3. Native Files/Photos library choice and same-item Photos saving are implemented, including
    revision checks, complete adjustment data and archive/reload conflict recovery. Physical
    same-item save/reopen and external-edit checks remain user acceptance tasks.
@@ -129,6 +129,6 @@ lynx above the title with gentle native layer motion, replacing the photo cards.
 The accent uses LightCraft amber #F2A516. The app icon uses the same winking lynx.
 Native iPhone and simulator builds passed, and the simulator home was visually
 reviewed at `LocalVerification/ilightcraft-home-iphone.png`. Source, asset license
-and verification notes are in `NativeReference/Docs/Verification/ilightcraft-branding.md`.
+and verification notes are in `../../iLightCraftApp/Docs/Verification/ilightcraft-branding.md`.
 
 The branding update was signed, installed and launched successfully on the iPhone 17 Pro.

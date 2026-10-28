@@ -1,10 +1,10 @@
 # iLightCraft
 
 Native photo editing for **iPhone, iPad and Mac Catalyst**. The active app is
-[`NativeReference/iLightCraft.xcodeproj`](NativeReference/iLightCraft.xcodeproj),
+[`../../iLightCraftApp/iLightCraft.xcodeproj`](https://github.com/cwallyman/iLightCraft/tree/ipad-lightcraft/iLightCraft.xcodeproj),
 scheme **iLightCraft**, with Release bundle ID `com.cwallyman.iLightCraft`.
-See the [native app README](NativeReference/README.md),
-[App Store preparation checklist](NativeReference/Docs/APP-STORE-READINESS.md)
+See the [native app README](https://github.com/cwallyman/iLightCraft/blob/ipad-lightcraft/README.md),
+[App Store preparation checklist](https://github.com/cwallyman/iLightCraft/blob/ipad-lightcraft/Docs/APP-STORE-READINESS.md)
 and [native Apple status](NATIVE-APPLE.md).
 
 ## Upstream LightCraft reference
@@ -13,7 +13,7 @@ The documentation below describes the upstream Rust product. Its feature coverag
 does not establish native iLightCraft feature coverage. Upstream names, links and
 legal credits are retained for provenance. The obsolete `AppleWrapper/` project
 and older build copies were moved to Trash on 2026-10-26; the native project above
-is the only active Apple app. See the [cleanup record](NativeReference/Docs/Verification/2026-10-26-project-cleanup.md).
+is the only active Apple app. See the [cleanup record](https://github.com/cwallyman/iLightCraft/blob/ipad-lightcraft/Docs/Verification/2026-10-26-project-cleanup.md).
 
 <p align="center">
   <a href="https://getartcraft.com/">
